@@ -6,14 +6,10 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 
-<<<<<<< HEAD
   resources :charges
-=======
   resources :results
-
   resources :properties
   
->>>>>>> 411f634994cfbc6add3807f7a78c4e9925516771
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20151119183327) do
     t.string   "address"
     t.integer  "parking_quantity"
     t.decimal  "price"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "title"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
