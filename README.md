@@ -1,9 +1,9 @@
 #GITHUB GROUP PROJECT
 ##Schedule
 
-###FRIDAY
+###Friday
 `Chyi`: Landing page: validation  
-`Brian`: Payment & confirmation pages  
+`Brian`: Payment & confirmation pages, profile page    
 `Andy & Jeffers`: result, result:/id, property pages  
 
 - Google API for result page  
@@ -11,19 +11,17 @@
 - Geocoding: locate an address; use database to populate parking space around it  
 - API cloudinary  
 
-###SATURDAY
-- Profile page  
+###Saturday
 - Add extra feature  
 
-###SUNDAY
+###Sunday
 
-###MONDAY
+###Monday
 - Deploy  
 
-###TUESDAY
+###Tuesday
 - Styling  
 - Refactor code  
-
 
 ##GIT COMMANDS (NOT FOR GIT MASTER)
 `git checkout -b branch_name`: create a new branch for new feature  
