@@ -17,3 +17,15 @@
 .navbar {
   border-radius: 0;
 }
+
+li {
+  cursor: pointer;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.modal {
+  border-radius: 0;
+}
