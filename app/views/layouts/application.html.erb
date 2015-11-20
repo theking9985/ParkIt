@@ -37,19 +37,28 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#">About Us</a></li>
       <li><a href="#">How it works</a></li>
-      <li><a href="#">Sign Up</a></li>
-      <li><a id="log" data-target='#login' data-toggle="modal">Login</a></li>
-      <li><a href="/logout">Log out</a></li>
+      <% if @current_user %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= @current_user.name %>! <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="/logout">Log Out</a></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><a data-target='#signup' data-toggle='modal'>Sign Up</a></li>
+        <li><a data-target='#login' data-toggle="modal">Login</a></li>        
+      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
 
 <div class="container-fluid">
   <%= render 'partials/flash' %>
-
   <%= yield %> 
 </div>
 
+<!-- Modal for logging in -->
 <div class="modal fade" id="login">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -64,5 +73,24 @@
   </div>
 </div>
 
+<!-- Modal for Signing up -->
+<div class="modal fade" id="signup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'partials/signup' %>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+  $(document).ready(function() {
+    $(".alert").delay(2200).fadeOut(300);
+  });
+  </script>
 </body>
 </html>
