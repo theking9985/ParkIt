@@ -1,0 +1,17 @@
+<h1>Properties#index</h1>
+<p>Find me in app/views/properties/index.html.erb</p>
+
+<h1>List of all properties</h1>
+<% @properties.each do |p| %>
+	
+	<div class="well">
+		
+		<%= p.address %>
+		<%= p.parking_quantity %>
+		<%= p.price %>
+
+	</div>
+<% end %>
+
+
+

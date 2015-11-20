@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'properties/index'
+
   root 'main#index'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   resources :charges
 =======
   resources :results
+
+  resources :properties
   
 >>>>>>> 411f634994cfbc6add3807f7a78c4e9925516771
   # The priority is based upon order of creation: first created -> highest priority.
