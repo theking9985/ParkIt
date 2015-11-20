@@ -1,0 +1,6 @@
+<%= bootstrap_form_for :user, url: login_path do |f| %>
+<%= f.text_field :email, placeholder: "Example@email.com" %>
+<%= f.password_field :password, placeholder: 'Password' %>
+
+<%= f.primary "Log In" %>
+<% end %>
