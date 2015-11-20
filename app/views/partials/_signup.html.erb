@@ -1,0 +1,9 @@
+<%= bootstrap_form_for :user, url: signup_path do |f| %>
+  <%= f.text_field :name, placeholder: 'John Doe' %>
+  <%= f.text_field :email, placeholder: 'Example@email.com' %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation, label: 'Confirm Password' %>
+  <%= f.text_field :phone %>
+
+  <%= f.primary 'Signup' %>
+<% end %>
