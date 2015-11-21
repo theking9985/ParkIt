@@ -1,0 +1,31 @@
+<h2>Profile Page of <%= @user.name%></h2>
+
+<div id="avatarimage">
+
+</div>
+
+<div id="aboutme">
+	<p>User Name: <%= @user.name %></p>
+	<p>Email: <%= @user.email %></p>
+	<p>Phone: <%= @user.phone %></p>
+	
+</div>
+
+<h3>My Trips</h3>
+<div id="trips">
+
+</div>
+
+<h3>My Hostings</h3>
+<div id="hostings">
+
+</div>
+
+<h3>My Properties</h3>
+<div id="prop">
+	<%= link to%>
+	<%#= link_to 'Edit', edit_property_path(creature), class: 'btn btn-primary' %>
+    <%#= link_to 'Delete', property, class: 'btn btn-danger', method: :delete %>
+	<button type="submit" formtarget="_blank">Add New Property</button><button>	
+	<button type="submit" formtarget="_blank">Edit Property</button>
+</div>
