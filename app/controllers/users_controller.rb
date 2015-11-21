@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
+      # @properties = Property.find params[:user_id]
+      @property = Property.all.where({user_id: @user})
   end
 
   private
