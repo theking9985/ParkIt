@@ -3,7 +3,8 @@ class PropertiesController < ApplicationController
 	attr_accessor :latitude
 
   def index
-  	@properties = Property.all
+  	# @properties = Property.all
+    @properties = Property.find params[:user_id => 5]
   end
 
   def create
