@@ -26,12 +26,13 @@
 
 	<%#= link_to 'Properties', properties_path(@property), class: 'btn btn-primary' %>
 	<% @property.each do |f|%>
-	<p>
-		<%= f.address %>
-	</p>
+		<p>
+			<%= f.address %>
+			<%= link_to 'Edit', edit_property_path(), class: 'btn btn-primary' %>
+	  	<%= link_to 'Delete', f, class: 'btn btn-danger', method: :delete %>
+		</p>
 	<% end %>
-	<%#= link_to 'Edit', edit_property_path(), class: 'btn btn-primary' %>
-    <%#= link_to 'Delete', property, class: 'btn btn-danger', method: :delete %>
-	<button type="submit" formtarget="_blank">Add New Property</button><button>	
-	<button type="submit" formtarget="_blank">Edit Property</button>
+
+<!-- 	<button type="submit" formtarget="_blank">Add New Property</button><button>	
+	<button type="submit" formtarget="_blank">Edit Property</button> -->
 </div>
