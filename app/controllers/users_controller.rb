@@ -22,6 +22,15 @@ class UsersController < ApplicationController
       @property = Property.all.where({user_id: @user})
   end
 
+  def edit 
+    @user = User.find params[:id]
+    @properties = Property.all
+  end
+
+  def update
+
+  end
+
   private
   def user_params
     params.require(:user).permit( :name, :email, :password, :password_confirmation, :phone)
