@@ -2,21 +2,30 @@
 
 <%= form_tag results_path, :method => :get do %>
 	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= text_field_tag :parking_quantity, params[:parking_quantity] %>
+		<%= text_field_tag :city%>
+		<%= number_field_tag :parking_quantity%>
+		<%= datetime_field_tag :checkin %>
+		<%= datetime_field_tag :checkout %>
 		
-
 		<%= submit_tag "Search Near", :name => nil %>
  	</p>
 <% end %>
 
+<% if params[:city].present? && params[:parking_quantity].present? && params[:checkin].present? && params[:checkout].present? %>
+	<p>Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b> to <b><%=params[:checkout]%></b>
+	</p>
 
+<% elsif !(params[:city].present?) || !(params[:parking_quantity].present?) || !(params[:checkin].present?) || !(params[:checkout].present?)  %>
+
+<p>All search inputs are required</p>
+<h2>All available properties</h2>
+
+<% end %>
 
 <div class="results_row row">
 
 	<div class="results_left col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	
-
 	<% @properties.each do |p|%>
 		<div class="well">
 			<p>Title: <%= p.title %></p>
@@ -35,11 +44,8 @@
 
 </div>
 
-
-
-
-
 <script type="text/javascript">
+
 
 	handler = Gmaps.build('Google');
 	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

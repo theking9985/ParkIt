@@ -1,10 +1,10 @@
 class ResultsController < ApplicationController
-
+	# working with city & parking
 	def index
-		if params[:search].present?
-			
-			@search = Property.near(params[:search], 20)
-			@properties = @search.where("parking_quantity >= ?", params[:parking_quantity].to_i)
+		if (params[:city] && params[:parking_quantity] && params[:checkin] && params[:checkout]).present?		
+	 		@city = Property.near(params[:city], 20)
+	 		@parking = @city.where("parking_quantity >= ?", params[:parking_quantity].to_i)
+	 		@properties = @parking.joins(:reservations).where("checkin >= ?", params[:checkin]).where("checkout <= ?", params[:checkout])
 
 			@hash = Gmaps4rails.build_markers(@properties) do |property, marker|
 			  marker.lat property.latitude
@@ -21,6 +21,8 @@ class ResultsController < ApplicationController
 
 		end
 	end
+
+	
 
 
 	def show
