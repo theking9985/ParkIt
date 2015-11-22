@@ -1,8 +1,11 @@
 class ResultsController < ApplicationController
 
 	def index
-		if params[:search].present?			
-			@properties = Property.near(params[:search], 100)
+		if params[:search].present?
+			
+			@search = Property.near(params[:search], 20)
+			@properties = @search.where("parking_quantity >= ?", params[:parking_quantity].to_i)
+
 			@hash = Gmaps4rails.build_markers(@properties) do |property, marker|
 			  marker.lat property.latitude
 			  marker.lng property.longitude
