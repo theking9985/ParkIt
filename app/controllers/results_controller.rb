@@ -14,4 +14,14 @@ class ResultsController < ApplicationController
 		@property = Property.find params[:id]
 	end
 
+	def create
+		Property.create property_params
+		redirect_to result_path
+	end
+
+	private
+	def property_params
+		params.require(:property).permit(:origin, :destination)
+	end	
+
 end
