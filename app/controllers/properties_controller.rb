@@ -23,7 +23,8 @@ class PropertiesController < ApplicationController
   def update
     property = Property.find params[:id]
     property.update property_params
-    redirect_to root_path
+    profile = property.user_id
+    redirect_to user_path(profile)
   end
 
   def destroy

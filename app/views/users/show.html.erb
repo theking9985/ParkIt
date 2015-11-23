@@ -25,11 +25,11 @@
 <div id="prop">
 
 	<%#= link_to 'Properties', properties_path(@property), class: 'btn btn-primary' %>
-	<% @property.each do |f|%>
+	<% @properties.each do |property|%>
 		<p>
-			<%= f.address %>
-			<%= link_to 'Edit', edit_property_path(), class: 'btn btn-primary' %>
-	  	<%= link_to 'Delete', f, class: 'btn btn-danger', method: :delete %>
+			<%= property.address %>
+			<%= link_to 'Edit', edit_property_path(property), class: 'btn btn-primary' %>
+	  	<%= link_to 'Delete', property, class: 'btn btn-danger', method: :delete %>
 		</p>
 	<% end %>
 

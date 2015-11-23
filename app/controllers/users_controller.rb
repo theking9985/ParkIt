@@ -19,7 +19,12 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       # @properties = Property.find params[:user_id]
-      @property = Property.all.where({user_id: @user})
+      
+      # SELECT p.*
+      # FROM property p
+      # JOIN user u ON p.user_id = u.id
+      # WHERE p.user_id = @user
+      @properties = Property.all.where({user_id: @user})
   end
 
   def edit 
