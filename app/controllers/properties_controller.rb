@@ -16,7 +16,6 @@ class PropertiesController < ApplicationController
 
   def new
   	@property = Property.new
-    # @property.user_id = params[:property][:user_id]
   end
 
   def edit
@@ -38,7 +37,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-  	params.require(:property).permit(:address, :parking_quantity, :price, :title, :description)
+  	params.require(:property).permit(:address, :parking_quantity, :price, :title, :description, :user_id)
   end
 
 
