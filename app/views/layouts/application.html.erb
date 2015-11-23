@@ -40,10 +40,10 @@
       <div class="searchbar form-group">
         <%= form_tag results_path, :method => :get do %>
           <p>
-            <%= text_field_tag :city%>
-            <%= number_field_tag :parking_quantity%>
-            <%= datetime_field_tag :checkin %>
-            <%= datetime_field_tag :checkout %>       
+            <%= text_field_tag :city, nil, :placeholder => "city" %>
+            <%= number_field_tag :parking_quantity, nil, :placeholder => "parking_quantity"%>
+            <%= datetime_field_tag :checkin, nil, :placeholder => "checkin" %>
+            <%= datetime_field_tag :checkout, nil, :placeholder => "checkout" %>       
             <%= submit_tag "Search Near", :name => nil %>
           </p>     
         
