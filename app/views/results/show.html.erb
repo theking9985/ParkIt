@@ -31,7 +31,7 @@
 <!-- 						<label for="">Origin</label> -->
 						<input name="origin" type="text" class="form-control" id="" value="<%= @property.address %>">
 <!-- 						<label for="">Destination</label> -->
-						<input name="destination" type="text" class="form-control" id="destination" value="" placeholder="ex: Seatac Airport">
+						<input name="destination" type="text" class="form-control" id="destination" value="" placeholder="ex: Portland">
 					</div>
 				
 					<input type="submit" value="Search" class="btn btn-primary mapButton" />
@@ -65,24 +65,32 @@
 	// var originInput = document.getElementsByName('origin');
 	// var destinationInput = document.getElementsByName('destination');
 
+var latitude = 45.5200;
+var longitude = -122.6819;
 
-// $('.mapButton').click(function(e){
-// 	var address = document.getElementsByName('destination').value;
-// 	var geocoder;
-// 	e.preventDefault();
+$('.mapButton').click(function(e){
+	e.preventDefault();
+	var address = document.querySelector('#destination').value;
 
-// 			console.log("address is... "+address);
-// 		function codeAddress(address, callback) {
-// 		 var coordinates;
-// 		 var geocoder = new google.maps.Geocoder();
-// 		 geocoder.geocode({'address': address}, function(results, status) {
-// 		 	var coords_obj = results[0].geometry.location;
-// 		 	coordinates = [coords_obj.nb,coords_obj.ob];
-// 			callback(coordinates);
-// 		 });
-// 	}
-// 		 codeAddress();
-// });
+
+
+		function codeAddress(address, callback) {
+		 var coordinates;
+		 geocoder.geocode({'address': address}, function(results, status) {
+		 	console.log(results);
+		 	var coords_obj = results[0].geometry.location;
+		 	coordinates = [coords_obj.G,coords_obj.K];
+		 	var latitude = coordinates[0];
+		 	var longitude = coordinates[1];
+		 	console.log(coords_obj);
+			callback(coordinates);
+		 });
+	}
+		 codeAddress(address,function(coordinates){
+		 	console.log(coordinates);
+		 	calcRoute(coordinates);
+		 });
+});
 
 
 var geocoder = new google.maps.Geocoder();
@@ -90,10 +98,10 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 var directionsService = new google.maps.DirectionsService();
 
 
-function calcRoute() {
+function calcRoute(coord) {
 	var origin = new google.maps.LatLng(<%= @property.latitude %>, <%= @property.longitude %>);
 
-	var destination = new google.maps.LatLng(45.5200,-122.6819);
+	var destination = new google.maps.LatLng(coord[0],coord[1]);
 	var request = {
 		origin: origin,
 		destination: destination,
@@ -106,7 +114,7 @@ function calcRoute() {
 	});
 }
 
-calcRoute();
+calcRoute([latitude, longitude]);
 
 handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'directions'}}, function(){
