@@ -31,7 +31,7 @@
 <!-- 						<label for="">Origin</label> -->
 						<input name="origin" type="text" class="form-control" id="" value="<%= @property.address %>">
 <!-- 						<label for="">Destination</label> -->
-						<input name="destination" type="text" class="form-control" id="" value="" placeholder="ex: Seatac Airport">
+						<input name="destination" type="text" class="form-control" id="destination" value="" placeholder="ex: Seatac Airport">
 					</div>
 				
 					<input type="submit" value="Search" class="btn btn-primary mapButton" />
@@ -62,16 +62,28 @@
 </div>
 
 <script type="text/javascript">
-	var originInput = document.getElementsByName('origin');
-	var destinationInput = document.getElementsByName('destination');
+	// var originInput = document.getElementsByName('origin');
+	// var destinationInput = document.getElementsByName('destination');
 
 
-$('.mapButton').click(function(e){
-	e.preventDefault();
-	console.log(originInput[0].value);
-	console.log(destinationInput[0].value);
-	calcRoute();
-});
+// $('.mapButton').click(function(e){
+// 	var address = document.getElementsByName('destination').value;
+// 	var geocoder;
+// 	e.preventDefault();
+
+// 			console.log("address is... "+address);
+// 		function codeAddress(address, callback) {
+// 		 var coordinates;
+// 		 var geocoder = new google.maps.Geocoder();
+// 		 geocoder.geocode({'address': address}, function(results, status) {
+// 		 	var coords_obj = results[0].geometry.location;
+// 		 	coordinates = [coords_obj.nb,coords_obj.ob];
+// 			callback(coordinates);
+// 		 });
+// 	}
+// 		 codeAddress();
+// });
+
 
 var geocoder = new google.maps.Geocoder();
 var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -80,8 +92,6 @@ var directionsService = new google.maps.DirectionsService();
 
 function calcRoute() {
 	var origin = new google.maps.LatLng(<%= @property.latitude %>, <%= @property.longitude %>);
-
-
 
 	var destination = new google.maps.LatLng(45.5200,-122.6819);
 	var request = {
