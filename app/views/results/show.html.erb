@@ -14,9 +14,11 @@
 		<div class="well">
 			<div><h4><%= @property.title %></h4> <br />
 				<%= @property.description %>
+				<%= @property.parking_quantity %>
+				<%= @property.price %>
 			</div><br />
 			<% if @current_user %>
-			<%= link_to 'Reserve Now', new_charge_path, class: 'btn btn-primary' %>
+			<%= link_to 'Reserve Now', new_charge_path(p), class: 'btn btn-primary' %>
 			<% else %>
 			<button class="btn btn-primary">Reserve Now</button>
 			<% end %>
