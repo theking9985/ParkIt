@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-color: #EFEFEF;
+    background-image: url("/assets/pike.jpg");
+    background-size: contain;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -63,5 +64,8 @@
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
+  <button>
+    <%= link_to 'Home', root_path, :class => 'btn btn-danger' %>
+  </button>
 </body>
 </html>
