@@ -1,9 +1,5 @@
 <h2>Profile Page of <%= @user.name%></h2>
 
-<div id="avatarimage">
-
-</div>
-
 <div id="aboutme">
 	<p>User Name: <%= @user.name %></p>
 	<p>Email: <%= @user.email %></p>
@@ -13,23 +9,32 @@
 
 <h3>My Trips</h3>
 <div id="trips">
-
+	<% @reservations.each do |reservation|%>
+		<p>
+			<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+		</p>
+	<% end %>
 </div>
 
 <h3>My Hostings</h3>
 <div id="hostings">
-
+	<% @myhosted.each do |reservation|%>
+		<p>
+			<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+		</p>
+	<% end %>
 </div>
 
 <h3>My Properties</h3>
 <div id="prop">
 
 	<%#= link_to 'Properties', properties_path(@property), class: 'btn btn-primary' %>
+	<%= link_to 'Add New Property', new_property_path(), class: 'btn btn-primary' %>
 	<% @properties.each do |property|%>
 		<p>
 			<%= property.address %>
-			<%= link_to 'Edit', edit_property_path(property), class: 'btn btn-primary' %>
-	  	<%= link_to 'Delete', property, class: 'btn btn-danger', method: :delete %>
+			<%= link_to 'Edit Property', edit_property_path(property), class: 'btn btn-primary' %>
+	  	<%= link_to 'Delete Property', property, class: 'btn btn-danger', method: :delete %>
 		</p>
 	<% end %>
 
