@@ -1,4 +1,6 @@
 class Property < ActiveRecord::Base
+	attr_accessor :available
+
   belongs_to :user
   has_many :reservations
   has_many :ratings, :as => :rateable
