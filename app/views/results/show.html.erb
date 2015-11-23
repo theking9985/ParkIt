@@ -1,0 +1,116 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11"><h1><%= @property.address %></h1></div>
+	</div>
+
+	<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-6">
+		<div>
+			<%= image_tag 'property-placeholder.jpg' %>
+		</div>
+		<br />
+		<div class="well">
+			<div><h4><%= @property.title %></h4> <br />
+				<%= @property.description %>
+			</div><br />
+			<% if @current_user %>
+			<%= link_to 'Reserve Now', new_charge_path, class: 'btn btn-primary' %>
+			<% else %>
+			<button class="btn btn-primary">Reserve Now</button>
+			<% end %>
+		</div>
+	</div>
+			<div class="col-md-4">
+			<div>
+
+				<form method="POST" role="form">
+				
+					<div class="form-group">
+<!-- 						<label for="">Origin</label> -->
+						<input name="origin" type="text" class="form-control" id="" value="<%= @property.address %>">
+<!-- 						<label for="">Destination</label> -->
+						<input name="destination" type="text" class="form-control" id="destination" value="" placeholder="ex: Seatac Airport">
+					</div>
+				
+					<input type="submit" value="Search" class="btn btn-primary mapButton" />
+				</form>
+
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-info">
+							<input type="radio" name="mode" id="walking" autocomplete="off" checked />
+							Walking
+						</label>
+						<label class="btn btn-info">
+							<input type="radio" name="mode" id="transit" autocomplete="off" />
+							Bus
+						</label>
+					</div>
+			</div>
+			<br>
+			<div style="width: 400px;">
+				<div id="directions" style="width: 400px; height: 300px;"></div>
+			</div>
+		</div>
+	<div class="col-md-1"></div>
+	</div>
+	<br />
+
+
+
+</div>
+
+<script type="text/javascript">
+	// var originInput = document.getElementsByName('origin');
+	// var destinationInput = document.getElementsByName('destination');
+
+
+// $('.mapButton').click(function(e){
+// 	var address = document.getElementsByName('destination').value;
+// 	var geocoder;
+// 	e.preventDefault();
+
+// 			console.log("address is... "+address);
+// 		function codeAddress(address, callback) {
+// 		 var coordinates;
+// 		 var geocoder = new google.maps.Geocoder();
+// 		 geocoder.geocode({'address': address}, function(results, status) {
+// 		 	var coords_obj = results[0].geometry.location;
+// 		 	coordinates = [coords_obj.nb,coords_obj.ob];
+// 			callback(coordinates);
+// 		 });
+// 	}
+// 		 codeAddress();
+// });
+
+
+var geocoder = new google.maps.Geocoder();
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+
+
+function calcRoute() {
+	var origin = new google.maps.LatLng(<%= @property.latitude %>, <%= @property.longitude %>);
+
+	var destination = new google.maps.LatLng(45.5200,-122.6819);
+	var request = {
+		origin: origin,
+		destination: destination,
+		travelMode: google.maps.TravelMode.TRANSIT
+	};
+	directionsService.route(request, function(response, status){
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+		}
+	});
+}
+
+calcRoute();
+
+handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'directions'}}, function(){
+  directionsDisplay.setMap(handler.getMap());
+});
+    
+</script>
