@@ -4,11 +4,10 @@ class PropertiesController < ApplicationController
 
   def index
   	@properties = Property.all
-    # @properties = Property.find params[:id]
   end
 
   def create
-  	Property.create property_params
+  	@current_user.properties.create property_params
     redirect_to properties_path
   end
 

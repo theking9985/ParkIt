@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 
   def destroy
   end
-
+  
   private
   def reservation_params
     params.require(:reservation).permit(:property_id, :user_id, :checkin, :checkout)

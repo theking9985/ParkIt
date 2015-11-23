@@ -2,6 +2,11 @@ class ChargesController < ApplicationController
 
 def new
 
+  #parking params for parking quantity, checkin, checkout, and address
+  # @custAddress = params[:city]
+  # @custCheckin = params[:checkin]
+  # @custCheckout = params[:checkout]
+  # @custPkgQty = params[:parking_quantity]
 end
 
 def create
