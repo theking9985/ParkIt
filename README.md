@@ -13,8 +13,7 @@
 
 - result page:  
 - properties page & properties/new page 
-- footer & nav:  
-	- nav: search bar     
+- footer:  
 
 `Jeffers`: properties/:id page, 404 page    
 
@@ -33,4 +32,8 @@ git add & commit & push (first time push `git push --set-upstream origin branch_
 `git pull upstream master`: after git master merge pull request to pull the most updated version  
 `git branch -d name`: delete local  
 `git push origin :name`: delete remote  
+
+
+###Bugs
+`results page`: if only input in `checkout` then search, it will break  
 

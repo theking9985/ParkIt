@@ -14,6 +14,17 @@
  *= require_self
  */
  
+// Andy's stylesheet
+#city {
+  margin-top: 9px;
+}
+
+.searchbar {
+  display: inline-block;
+}
+
+//the end of Andy's stylesheet
+
 @mixin transition($speed) {
   -o-transition: $speed;
   -ms-transition: $speed;
