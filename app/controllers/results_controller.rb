@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-	# working with city & parking
+	
 	def index
 		if (params[:city] && params[:parking_quantity] && params[:checkin] && params[:checkout]).present?		
 	 		@city = Property.near(params[:city], 20)

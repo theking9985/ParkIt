@@ -33,6 +33,7 @@
 			<p>Price: $<%= p.price %></p>
 			<p>Parking available: <%= p.parking_quantity %></p>
 			<p>Address: <%= p.address %></p>
+			<%= link_to "Pick this driveway", result_path(p), class: "btn btn-primary" %>
 		</div>
 	<% end %>	
 

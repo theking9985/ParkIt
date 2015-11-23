@@ -9,9 +9,12 @@
 
 `Chyi`: cool effect for landing page; about us    
 `Brian`: Profile page; Payment & confirmation pages  
-`Andy`: result page(cloudinary API for profile pictures); properties page & properties/new page; footer & nav  
+`Andy`: 
 
-- results: if only checkout params then it will show error  
+- result page:  
+- properties page & properties/new page 
+- footer & nav:  
+	- nav: search bar     
 
 `Jeffers`: properties/:id page, 404 page    
 
