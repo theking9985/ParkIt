@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'properties/index'
-
   root 'main#index'
+  get 'signup' => 'users#new'
+  post 'signup' => 'users#create'
+  get 'profile/:id' => 'users#show', :as => :user
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+
+  post 'results/:id' => 'results#create'
 
   resources :charges
   resources :results

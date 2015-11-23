@@ -1,0 +1,11 @@
+<%= bootstrap_form_for :user, url: signup_path do |f| %>
+  <h3>Sign up</h3>
+
+  <%= f.text_field :name, hide_label: true, placeholder: 'Name' %>
+  <%= f.text_field :email, hide_label: true, placeholder: 'Email' %>
+  <%= f.password_field :password, hide_label: true, placeholder: 'Password'  %>
+  <%= f.password_field :password_confirmation, hide_label: true, placeholder: 'Re-enter password' %>
+  <%= f.telephone_field :phone, hide_label: true, placeholder: 'Phone' %>
+
+  <%= f.primary 'Sign me up!' %>
+<% end %>

@@ -1,27 +1,27 @@
 #GITHUB GROUP PROJECT
 ##Schedule
 
-###Friday
-`Chyi`: Landing page: validation  
-`Brian`: Payment & confirmation pages, profile page    
-`Andy & Jeffers`: result, result:/id, property pages  
+####Still need to create:  
 
-- Google API for result page  
-- Map web service: to display a map  
-- Geocoding: locate an address; use database to populate parking space around it  
-- API cloudinary  
-
-###Saturday
-- Add extra feature  
+- How it works page      
 
 ###Sunday
+
+`Chyi`: cool effect for landing page; about us    
+`Brian`: Profile page; Payment & confirmation pages  
+`Andy`: result page(cloudinary API for profile pictures); properties page & properties/new page; footer & nav  
+
+- results: if only checkout params then it will show error  
+
+`Jeffers`: properties/:id page, 404 page    
 
 ###Monday
 - Deploy  
 
 ###Tuesday
 - Styling  
-- Refactor code  
+- Cool effects  
+- Refactor code   
 
 ##GIT COMMANDS (NOT FOR GIT MASTER)
 `git checkout -b branch_name`: create a new branch for new feature  

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
+# gem for bootstrap_form_for
 gem 'bootstrap_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -31,6 +34,12 @@ gem "gmaps4rails"
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+gem "bootstrap-sass"
+
+gem "anjlab-widgets"
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
