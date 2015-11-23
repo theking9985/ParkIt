@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
 
+  before_action :current_user 
+
 	attr_accessor :latitude
 
   def index
@@ -14,6 +16,7 @@ class PropertiesController < ApplicationController
 
   def new
   	@property = Property.new
+    # @property.user_id = params[:property][:user_id]
   end
 
   def edit

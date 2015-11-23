@@ -1,29 +1,4 @@
 #GITHUB GROUP PROJECT
-##Schedule
-
-####Still need to create:  
-
-- How it works page      
-
-###Sunday
-
-`Chyi`: cool effect for landing page; about us    
-`Brian`: Profile page; Payment & confirmation pages  
-`Andy`: 
-
-- result page:  
-- properties page & properties/new page 
-- footer:  
-
-`Jeffers`: properties/:id page, 404 page    
-
-###Monday
-- Deploy  
-
-###Tuesday
-- Styling  
-- Cool effects  
-- Refactor code   
 
 ##GIT COMMANDS (NOT FOR GIT MASTER)
 `git checkout -b branch_name`: create a new branch for new feature  
@@ -34,6 +9,4 @@ git add & commit & push (first time push `git push --set-upstream origin branch_
 `git push origin :name`: delete remote  
 
 
-###Bugs
-`results page`: if only input in `checkout` then search, it will break  
 

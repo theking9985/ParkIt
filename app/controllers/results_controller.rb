@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
 	
 	def index
-		if (params[:city] && params[:parking_quantity] && params[:checkin] && params[:checkout]).present?		
+		if (params[:city] && params[:parking_quantity] && params[:checkin] && params[:checkout]).present?
 	 		@city = Property.near(params[:city], 20)
 	 		@parking = @city.where("parking_quantity >= ?", params[:parking_quantity].to_i)
 	 		@properties = @parking.joins(:reservations).where("checkin >= ?", params[:checkin]).where("checkout <= ?", params[:checkout])
@@ -18,7 +18,6 @@ class ResultsController < ApplicationController
 			  marker.lng property.longitude
 			  marker.infowindow property.title
 			end
-
 		end
 	end
 
