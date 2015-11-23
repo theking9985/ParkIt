@@ -40,7 +40,6 @@ gem "bootstrap-sass"
 gem "anjlab-widgets"
 
 
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
