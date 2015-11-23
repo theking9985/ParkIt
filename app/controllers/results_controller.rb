@@ -27,16 +27,7 @@ class ResultsController < ApplicationController
 
 	def show
 		@property = Property.find params[:id]
+		flash[:danger] = "You must log in to reserve parking."
 	end
-
-	def create
-		Property.create property_params
-		redirect_to result_path
-	end
-
-	private
-	def property_params
-		params.require(:property).permit(:origin, :destination)
-	end	
 
 end
