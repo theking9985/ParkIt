@@ -23,7 +23,15 @@
 			<p>Parking capacity: <%= p.parking_quantity %></p>
 			<p>Parking available: <b><%= p.available %></b></p>
 			<p>Address: <%= p.address %></p>
+
+			<% if p.available > 0 %>
+
 			<%= link_to "Pick this driveway", result_path(p), class: "btn btn-primary" %>
+			
+			<% else %>
+			<p>No more parking available at <b><%= p.title %></b></p>
+
+			<% end %>
 		</div>
 	<% end %>	
 
