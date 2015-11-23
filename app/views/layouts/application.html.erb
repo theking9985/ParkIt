@@ -10,6 +10,8 @@
 
 
   <!-- Latest compiled and minified CSS & JS -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/application.scss">
   <script src="//code.jquery.com/jquery.js"></script>
@@ -51,7 +53,9 @@
       </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">About Us</a></li>
+
+      <li><a href="/about">About Us</a></li>
+      <li><a href="#">How it works</a></li>
       <% if @current_user %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= @current_user.name %>! <b class="caret"></b></a>

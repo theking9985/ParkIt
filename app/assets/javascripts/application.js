@@ -18,3 +18,6 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+//= require moment
+//= require bootstrap-datetimepicker
+

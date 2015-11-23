@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-
+# both of these are needed for the calendars
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+# gem for better errors
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 # gem for bootstrap_form_for
 gem 'bootstrap_form'

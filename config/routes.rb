@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  # get 'reservations/index'
+
+  # get 'reservations/new'
+
+  # get 'reservations/create'
+
+  # get 'reservations/destroy'
+
   root 'main#index'
+  get 'about' => 'main#about'
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
   get 'profile/:id' => 'users#show', :as => :user
@@ -12,6 +21,7 @@ Rails.application.routes.draw do
   resources :charges
   resources :results
   resources :properties
+  resources :reservations
   
   match '*a', :to => 'errors#routing', via: :get
   

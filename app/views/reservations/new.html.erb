@@ -1,0 +1,56 @@
+<!-- <h1>Reservations#new</h1>
+<p>Find me in app/views/reservations/index.html.erb</p>
+
+<div class="container">
+    <div class='col-md-5'>
+      <form action="" method="POST" role="form">
+        <div class="form-group">
+            <input type="hidden" class="form-control" id="reserve-property" value="<%= @property %>">
+            <input type="hidden" class="form-control" id="reserve-property" value="<%= @current_user.id %>">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script> -->
+
+<h2>Reservation New</h2>
+
+<%= bootstrap_form_for @reservation do |r| %>
+  <%= r.hidden_field :property_id, :value => @property %>
+  <%= r.hidden_field :user_id, :value => @current_user.id %>
+  <%= r.datetime_select :checkin %>
+  <%= r.datetime_select :checkout %>
+
+  <%= r.primary %>
+<% end %>

@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
  
 // Andy's stylesheet
 #city {
@@ -123,7 +126,6 @@ body {
       position: relative;
       text-align: center;
       top: -300px;
-      // font-size: 28px;
       opacity: 0;
     }
 
@@ -133,7 +135,6 @@ body {
         opacity: 0;
       }
       p {
-        // font-size: 28px;
         opacity: 1;
       }
     }
@@ -144,6 +145,10 @@ body {
     background: url('/assets/newyork.jpg') center center;
     background-size: cover;
     max-width: 100%;
-    height: 100%;  
+    height: 500px;  
   }
+}
+
+.bio {
+  text-align: center;
 }
