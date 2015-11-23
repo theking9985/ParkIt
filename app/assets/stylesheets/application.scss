@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+@mixin transition($speed) {
+  -o-transition: $speed;
+  -ms-transition: $speed;
+  -moz-transition: $speed;
+  -webkit-transition: $speed;
+  transition: $speed;
+}
+
+.navbar,
+.alert,
+.dropdown-menu,
+.modal-content,
+.btn,
+.form-control,
+.input,
+.form-group {
+  border-radius: 0;
+}
+
+body {
+  background: #EEEEEE;
+}
+
+.navbar {
+  background: #FFFFFF;
+  margin-bottom: 0px;
+
+  li {
+  cursor: pointer;
+  }
+
+  .navbar-toggle {
+    border-color: #40B3DF;
+
+    .icon-bar {
+      background: #40B3DF;
+    }
+  }
+}
+
+.jumbotron {
+  position: relative;
+  padding-top: 0px;
+  width: 100%;
+  height: 550px;
+  background: url('seattle.png') center center;
+  background-size: cover;
+  overflow: hidden;
+
+  .innards {
+    text-align: center;
+    color: white;
+  }
+}
+
+.btn-primary {
+  background: #40B3DF;
+  border-color: #40B3DF;
+  @include transition(0.3s);
+
+  &:hover {
+    background: #17649A;
+    border-color: #17649A;
+  }
+}
+
+.modal-content {
+  width: 400px;
+  margin: 0 auto;
+
+  .btn {
+    width: 368px;
+  }
+}
+
+.container {
+  #pike {
+    color: white;
+    font-size: 36px;
+    background: url('/assets/pike.jpg') center center;
+    background-size: cover;
+    max-width: 100%;
+    height: 500px;  
+
+    h2 {
+      @include transition(0.5s ease-in-out);
+      font-size: 36px;
+      font-weight: bold;
+      position: relative;
+      line-height: 400px;
+      text-align: center;
+      opacity: 1;
+    }
+    p {
+      @include transition(0.5s ease-in-out);
+      position: relative;
+      text-align: center;
+      top: -300px;
+      // font-size: 28px;
+      opacity: 0;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      h2 {
+        opacity: 0;
+      }
+      p {
+        // font-size: 28px;
+        opacity: 1;
+      }
+    }
+  }
+
+  #newyork {
+    color: white;
+    background: url('/assets/newyork.jpg') center center;
+    background-size: cover;
+    max-width: 100%;
+    height: 100%;  
+  }
+}
