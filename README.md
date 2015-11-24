@@ -5,6 +5,7 @@ ParkIt is a project that assists drivers to find parking in various areas with a
 You could almost think of project like "The AirBNB for parking". The application incorporates map and payment APIs to help those struggling to find parking spaces in their areas. 
 
  ##Technologies Used
+ 
  - HTML
  - CSS
  - Javascript
