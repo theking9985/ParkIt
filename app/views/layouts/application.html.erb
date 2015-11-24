@@ -21,10 +21,6 @@
 </head>
 <body>
 
-
-
-
-
 <nav class="navbar navbar-primary" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -34,17 +30,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/"><img src="/assets/p3_logo.jpg" alt="P3 logo"></a>
+    <a href="/"><img src="#" alt="P3 logo"></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     
-
-
-
-
-
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/about">About Us</a></li>
       <% if @current_user %>
@@ -66,24 +57,24 @@
 <div class="searchbar form-group">
   <%= form_tag results_path, :method => :get do %>
     
-      <%= text_field_tag :city, nil, :placeholder => "Address" %>
-      <%= number_field_tag :parking_quantity, nil, :placeholder => "Parking spot"%>
+      <%= text_field_tag :city, nil, :placeholder => "Address", class: "searchbox" %>
+      <%= number_field_tag :parking_quantity, nil, :placeholder => "Parking spot", class: "searchbox" %>
       
       <span class='big input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" name="checkin" placeholder= "Check in date/time" />
-          <span class="small input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
+          <input type='text' class="calendar form-control" name="checkin" placeholder= "Check in date/time" />
+          <span class="small_1 input-group-addon">
+              <span class="small_2 glyphicon glyphicon-calendar"></span>
           </span>
       </span>
       
       <span class='big input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" name="checkout" placeholder= "Check out date/time" />
-          <span class="small input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
+          <input type='text' class="calendar form-control" name="checkout" placeholder= "Check out date/time" />
+          <span id="small_2" class="small_1 input-group-addon">
+              <span class="small_2 glyphicon glyphicon-calendar"></span>
           </span>
       </span>
       
-      <%= submit_tag "Search Near", :name => nil %>
+      <%= submit_tag "Search Near", :name => nil, class: "search_btn btn btn-primary" %>
     
   
   <% end %>
