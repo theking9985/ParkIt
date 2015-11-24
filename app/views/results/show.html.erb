@@ -1,57 +1,65 @@
-<div class="container-fluid">
+<div class="container-fluid bg_id">
 	<div class="row">
 		<div class="col-md-1"></div>
-		<div class="col-md-11"><h1><%= @property.address %></h1></div>
+		<div class="col-md-11 resultsHeader"><h1><%= @property.title %> </h1></div>
 	</div>
 
 	<div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-6">
-		<div class="well">
-			<div><h4><%= @property.title %></h4> <br />
-				<%= @property.description %>
-				<br />
-				<div>
-					Price: <%= @property.price %>
+		<div class="well" id="content">
+			<div><h4><%= @property.address %> </h4> <small><em>Hosted By: <%= @user.name %></em></small> <br /><br />
+				<div class="row">
+					<div class="col-md-7">
+						<div>
+							<%= @property.description %>
+						</div>	
+						<br />
+					</div>
+					<div class="col-md-5">
+						<div><strong>Trip details:</strong><br />
+						Checkin:<%= params[:checkin] %>
+						Checkout:<%= params[:checkout] %>
+						Parking: <%= params[:parking_quantity] %><br />
+						Rate: $<%= @property.price %>
+						</div>
+					</div>
 				</div>
 				<br />
-				<div>
-					<small>Hosted By: <%= @user.name %></small> 
-				</div>
 			</div>
 			<% if @current_user %>
-			<%= link_to 'Reserve Now', new_result_charge_path(@property,
-			checkin: params[:checkin], 
-			checkout: params[:checkout], 
-			parking_quantity: params[:parking_quantity]
-			), 
-			class: 'btn btn-primary' %>
+				<%= link_to 'Reserve Now', new_result_charge_path(@property,
+				checkin: params[:checkin], 
+				checkout: params[:checkout], 
+				parking_quantity: params[:parking_quantity]
+				), 
+				class: 'btn btn-primary' %>
 			<% else %>
-			<%= link_to 'Reserve Now', result_path, class: 'btn btn-danger danger' %>
+				<%= link_to 'Reserve Now', result_path, class: 'btn btn-danger danger' %>
 			<% end %>
+					<!-- press button for route -->
 		</div>
 	</div>
 			<div class="col-md-4">
-			<div>
-
-				<form method="POST" role="form">
+				<div class="well text-center" id="bus">Find a bus route to your destination</div>
+				
+				<form method="POST" role="form" id="route">
 				
 					<div class="form-group">
 <!-- 						<label for="">Origin</label> -->
-						<input name="origin" type="text" class="form-control" id="" value="<%= @property.address %>"><br/>
-<!-- 						<label for="">Destination</label> -->
-						<input name="destination" type="text" class="form-control" id="destination" value="" placeholder="ex: Portland">
+						<input name="origin" type="text" class="form-control" id="" value="<%= @property.address %>">
+						<div class="input-group">
+	<!-- 						<label for="">Destination</label> -->
+							<input name="destination" type="text" class="form-control" autofocus="autofocus" id="destination" value="" placeholder="ex: Space Needle">
+							<span class="input-group-btn">
+								<i class="fa fa-bus mapButton btn btn-primary pull-right"></i>			
+							</span>
+						</div>
 					</div>
-				
-					<input type="submit" value="Search" class="btn btn-primary mapButton" />
 				</form>
-
+				<!-- renders map -->
+				<div id="directions" style="height: 400px;"></div>
 			</div>
-			<br>
-			<div style="width: 400px;">
-				<div id="directions" style="width: 400px; height: 400px;"></div>
-			</div>
-		</div>
 	<div class="col-md-1"></div>
 	</div>
 	<br />
@@ -62,8 +70,8 @@
 <script type="text/javascript">
 
 
-var latitude = 45.5200;
-var longitude = -122.6819;
+var latitude = 47.6204;
+var longitude = -122.3491;
 
 $('.mapButton').click(function(e){
 	e.preventDefault();
