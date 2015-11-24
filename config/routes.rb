@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'main#index'
   get 'about' => 'main#about'
+  get 'howitworks' => 'main#howitworks'
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
   get 'profile/:id' => 'users#show', :as => :user
@@ -18,12 +19,15 @@ Rails.application.routes.draw do
 
   post 'results/:id' => 'results#create'
 
-  resources :charges
-  resources :results
+  resources :results do
+    resources :chargnes
+  end
   resources :properties
   resources :reservations
   
   match '*a', :to => 'errors#routing', via: :get
+  get "/422", :to => 'errors#unacceptable'
+  get "/500", :to => 'errors#internal_error'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
