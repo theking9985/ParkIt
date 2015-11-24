@@ -21,7 +21,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <nav class="navbar navbar-primary" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -36,7 +35,6 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-    
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/about">About Us</a></li>
       <% if @current_user %>
@@ -121,6 +119,7 @@
     </div>
   </div>
 </div>
+
   <script>
   $(document).ready(function() {
     $(".alert").delay(2200).fadeOut(300);
