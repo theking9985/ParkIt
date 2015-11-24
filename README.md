@@ -4,7 +4,8 @@
 ParkIt is a project that assists drivers to find parking in various areas with available driveways. The project members are Jeffers Baxter, Anh Pham, Chyi Yen Wang, and Brian Navaluna.
 You could almost think of project like "The AirBNB for parking". The application incorporates map and payment APIs to help those struggling to find parking spaces in their areas. 
 
- ##Technologies Used
+##Technologies Used  
+ 
  - HTML
  - CSS
  - Javascript
