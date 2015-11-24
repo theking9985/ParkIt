@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-image: url("/assets/pike.jpg");
-    background-size: contain;
+    background-image: url('assets/No_Parking.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    height: 100%; 
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    margin: 200px;
   }
 
   div.dialog {
@@ -56,16 +59,16 @@
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
+
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1>Please try another address.</h1>
+      <p>Parking is prohibited at this location.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <button>
+      <%= link_to 'Home', root_path, :class => 'btn btn-danger' %>
+    </button>
+
   </div>
-  <button>
-    <%= link_to 'Home', root_path, :class => 'btn btn-danger' %>
-  </button>
 </body>
 </html>
