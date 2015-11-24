@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   root 'main#index'
   get 'about' => 'main#about'
-  get 'howitworks' => 'main#howitworks'
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
   get 'profile/:id' => 'users#show', :as => :user
