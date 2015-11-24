@@ -30,7 +30,10 @@ class ResultsController < ApplicationController
 
 	def show
 		@property = Property.find params[:id]
-		flash[:danger] = "You must log in to reserve parking."
+		@user = @property.user
+		if !current_user
+			flash[:danger] = "You must log in to reserve parking."
+		end
 	end
 
 end

@@ -14,11 +14,18 @@
 					Parking Quantity: <%= @property.parking_quantity %>
 				</div>
 				<div>
+					Parking Available: <%= @property.available %>
+				</div>
+				<div>
 					Price: <%= @property.price %>
 				</div>
-			</div><br />
+				<br />
+				<div>
+					<small>Hosted By: <%= @user.name %></small> 
+				</div>
+			</div>
 			<% if @current_user %>
-			<%= link_to 'Reserve Now', new_reservation_path(:property_id => @property.id), class: 'btn btn-primary' %>
+			<%= link_to 'Reserve Now', new_charge_path(:property_id => @property.id), class: 'btn btn-primary' %>
 			<% else %>
 			<%= link_to 'Reserve Now', result_path, class: 'btn btn-danger danger' %>
 			<% end %>
@@ -39,16 +46,6 @@
 					<input type="submit" value="Search" class="btn btn-primary mapButton" />
 				</form>
 
-<!-- 					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-info">
-							<input type="radio" name="mode" id="walking" autocomplete="off" checked />
-							Walking
-						</label>
-						<label class="btn btn-info">
-							<input type="radio" name="mode" id="transit" autocomplete="off" />
-							Bus
-						</label>
-					</div> -->
 			</div>
 			<br>
 			<div style="width: 400px;">
@@ -64,8 +61,7 @@
 </div>
 
 <script type="text/javascript">
-	// var originInput = document.getElementsByName('origin');
-	// var destinationInput = document.getElementsByName('destination');
+
 
 var latitude = 45.5200;
 var longitude = -122.6819;
