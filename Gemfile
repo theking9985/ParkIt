@@ -42,7 +42,7 @@ gem "bootstrap-sass"
 
 gem "anjlab-widgets"
 gem 'rails_12factor', group: :production
-
+gem 'spring'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
