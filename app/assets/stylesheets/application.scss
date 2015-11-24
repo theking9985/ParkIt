@@ -18,12 +18,13 @@
 @import 'bootstrap-datetimepicker';
  
 // Andy's stylesheet
-#city {
-  margin-top: 9px;
-}
+// Search bar
 
 .searchbar {
-  display: inline-block;
+  .big {
+    width: 250px;
+  }
+
 }
 
 //the end of Andy's stylesheet

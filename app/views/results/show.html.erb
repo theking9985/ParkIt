@@ -22,9 +22,7 @@
 			<% if @current_user %>
 			<%= link_to 'Reserve Now', new_result_charge_path(@property,
 			checkin: params[:checkin], 
-			checkin_time: params[:checkin_time], 
 			checkout: params[:checkout], 
-			checkout_time: params[:checkout_time],
 			parking_quantity: params[:parking_quantity]
 			), 
 			class: 'btn btn-primary' %>
