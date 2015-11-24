@@ -1,7 +1,8 @@
-You have now booked for<%= @custPkgQty%> spots  at <%= @custAddress%> from <%= @custCheckin%> to <%= @custCheckout%>
+
+<p>You are booking for <b><%= @address %></b> for <b><%= @custPkgQty %></b> parking spots from <b><%= @custCheckin%></b>  at <b><%= @custCheckinTime %></b> to <b><%= @custCheckout%></b> at <b><%= @custCheckoutTime %></b></p>
 
 
-<%= form_tag charges_path do %>
+<%= form_tag result_charges_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">

@@ -3,9 +3,12 @@ class ChargesController < ApplicationController
 def new
 
   #parking params for parking quantity, checkin, checkout, and address
-  @custAddress = params[:city]
+  @cust = params[:result_id]
+  @address = Property.all.where(:id => @cust)[0].address
   @custCheckin = params[:checkin]
+  @custCheckinTime = params[:checkin_time]
   @custCheckout = params[:checkout]
+  @custCheckoutTime = params[:checkout_time]
   @custPkgQty = params[:parking_quantity]
 end
 
