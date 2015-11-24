@@ -66,19 +66,19 @@
 <div class="searchbar form-group">
   <%= form_tag results_path, :method => :get do %>
     <p>
-      <%= text_field_tag :city, nil, :placeholder => "city" %>
-      <%= number_field_tag :parking_quantity, nil, :placeholder => "parking_quantity"%>
+      <%= text_field_tag :city, nil, :placeholder => "Address" %>
+      <%= number_field_tag :parking_quantity, nil, :placeholder => "Parking spot"%>
       
-       <span class='input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" name="checkin" placeholder="Check in date and time" />
-          <span class="input-group-addon">
+      <span class='big input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" name="checkin" placeholder= "Check in date and time" />
+          <span class="small input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
           </span>
       </span>
-
-      <span class='input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" name="checkout" placeholder="Check out date and time"/>
-          <span class="input-group-addon">
+      
+      <span class='big input-group date' id='datetimepicker2'>
+          <input type='text' class="form-control" name="checkout" placeholder= "Check out date and time" />
+          <span class="small input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
           </span>
       </span>
@@ -89,21 +89,12 @@
   <% end %>
 </div>
 
-
-            
-               
-             
-             
-
-
-
-
  <script type="text/javascript">
-          $(function () {
-              $('#datetimepicker1').datetimepicker();
-              $('#datetimepicker2').datetimepicker();
-          });
-      </script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker2').datetimepicker();
+    });
+</script>
 
 <!-- <div class="container-fluid"> -->
   <%= render 'partials/flash' %>

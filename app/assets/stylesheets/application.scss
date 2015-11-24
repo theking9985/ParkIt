@@ -19,11 +19,13 @@
  
 // Andy's stylesheet
 // Search bar
-input[name="checkin"], input[name="checkout"]{
-  display: inline;
-  width: 20px;
-}
 
+.searchbar {
+  .big {
+    width: 250px;
+  }
+
+}
 
 //the end of Andy's stylesheet
 

@@ -40,6 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "bootstrap-sass"
 
+gem "anjlab-widgets"
 gem 'rails_12factor', group: :production
 gem 'spring'
 
