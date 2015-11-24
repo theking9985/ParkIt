@@ -1,43 +1,54 @@
-<h2>Profile Page of <%= @user.name%></h2>
+<div class="container">
 
-<div id="aboutme">
-	<p>User Name: <%= @user.name %></p>
-	<p>Email: <%= @user.email %></p>
-	<p>Phone: <%= @user.phone %></p>
-	
-</div>
+	<div class="row">
+		<div id="aboutme" class="col-xs-12 col-sm-6 col-md-6">
+			<h3>
+				<p><%= @user.name %></p>
+				<small>
+					Email: <%= @user.email %>
+					<br />
+					Phone: <%= @user.phone %>
+					<br />
+					Member since: <%= @user.created_at.strftime('%m-%d-%Y') %>
+					<br />
+					Description: 
+					<br />
+					<%= @user.aboutme %>
+				</small>
+			</h3>
+		</div>
 
-<h3>My Trips</h3>
-<div id="trips">
-	<% @reservations.each do |reservation|%>
-		<p>
-			<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
-		</p>
-	<% end %>
-</div>
+		<div id="prop" class="col-xs-6 col-md-6">
+		<h3>My Properties
+			<%= link_to '', new_property_path(), class: 'fa fa-plus-circle' %></h3>
+			<% @properties.each do |property|%>
+				<p>
+					<%= property.address %>
+					<%= link_to '', edit_property_path(property), class: 'fa fa-pencil-square-o fa-2x' %>
+			  	<%= link_to '', property, class: 'fa fa-trash-o fa-2x', method: :delete %>
+				</p>
+			<% end %>
+		</div>
+	</div>
 
-<h3>My Hostings</h3>
-<div id="hostings">
-	<% @myhosted.each do |reservation|%>
-		<p>
-			<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
-		</p>
-	<% end %>
-</div>
+	<div id="trips">
+		<h3>My Trips</h3>
+		<% @reservations.each do |reservation|%>
+			<p>
+				<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+			</p>
+		<% end %>
+	</div>
 
-<h3>My Properties</h3>
-<div id="prop">
 
-	<%#= link_to 'Properties', properties_path(@property), class: 'btn btn-primary' %>
-	<%= link_to 'Add New Property', new_property_path(), class: 'btn btn-primary' %>
-	<% @properties.each do |property|%>
-		<p>
-			<%= property.address %>
-			<%= link_to 'Edit Property', edit_property_path(property), class: 'btn btn-primary' %>
-	  	<%= link_to 'Delete Property', property, class: 'btn btn-danger', method: :delete %>
-		</p>
-	<% end %>
+	<div id="hostings">
+		<h3>My Hostings</h3>
+		<% @myhosted.each do |reservation|%>
+			<p>
+				<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+			</p>
+		<% end %>
+	</div>
 
-<!-- 	<button type="submit" formtarget="_blank">Add New Property</button><button>	
-	<button type="submit" formtarget="_blank">Edit Property</button> -->
+
 </div>

@@ -29,6 +29,8 @@
 
 //the end of Andy's stylesheet
 
+$line-height: 300px;
+
 @mixin transition($speed) {
   -o-transition: $speed;
   -ms-transition: $speed;
@@ -73,7 +75,7 @@ body {
   position: relative;
   padding-top: 0px;
   width: 100%;
-  height: 550px;
+  height: 400px;
   background: url('/seattle.png') center center;
   background-size: cover;
   overflow: hidden;
@@ -111,19 +113,19 @@ body {
     background: url('/pike.jpg') center center;
     background-size: cover;
     max-width: 100%;
-    height: 500px;  
+    height: 300px; 
 
     h2 {
       @include transition(0.5s ease-in-out);
-      font-size: 36px;
       font-weight: bold;
       position: relative;
-      line-height: 400px;
+      line-height: $line-height;
       text-align: center;
       opacity: 1;
     }
     p {
       @include transition(0.5s ease-in-out);
+      font-size: 32px;
       position: relative;
       text-align: center;
       top: -300px;
@@ -145,11 +147,55 @@ body {
     color: white;
     background: url('/newyork.jpg') center center;
     background-size: cover;
+    text-align: center;
     max-width: 100%;
-    height: 500px;  
+    height: 300px;  
+
+    h2 {
+      line-height: $line-height;
+    }
+  } 
+  #amsterdam {
+    color: white;
+    background: url('/amsterdam.jpg') center center;
+    background-size: cover;
+    line-height: $line-height;
+    text-align: center;
+    max-width: 100%;
+    height: 300px;  
   }
+
+    h2 {
+      line-height: $line-height;
+    } 
 }
 
 .bio {
   text-align: center;
+}
+
+.fa-plus-circle {
+  color: #A8CB17;
+  &:hover {
+    color: #61AE24;
+    text-decoration: none;
+  }
+}
+
+.fa-pencil-square-o {
+  color: #40B3DF;
+
+  &:hover {
+    color: #17649A;
+    text-decoration: none;
+  }
+}
+
+.fa-trash-o {
+  color: #E54028;
+
+  &:hover {
+    color: #CD1231;
+    text-decoration: none;
+  }
 }
