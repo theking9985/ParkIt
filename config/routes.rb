@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post 'results/:id' => 'results#create'
 
   resources :results do
-    resources :chargnes
+    resources :charges
   end
   resources :properties
   resources :reservations
