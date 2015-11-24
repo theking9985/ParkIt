@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :reservations
   
   match '*a', :to => 'errors#routing', via: :get
+  get "/422", :to => 'errors#unacceptable'
+  get "/500", :to => 'errors#internal_error'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
