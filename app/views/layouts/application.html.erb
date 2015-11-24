@@ -65,26 +65,26 @@
 
 <div class="searchbar form-group">
   <%= form_tag results_path, :method => :get do %>
-    <p>
+    
       <%= text_field_tag :city, nil, :placeholder => "Address" %>
       <%= number_field_tag :parking_quantity, nil, :placeholder => "Parking spot"%>
       
       <span class='big input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" name="checkin" placeholder= "Check in date and time" />
+          <input type='text' class="form-control" name="checkin" placeholder= "Check in date/time" />
           <span class="small input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
           </span>
       </span>
       
       <span class='big input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" name="checkout" placeholder= "Check out date and time" />
+          <input type='text' class="form-control" name="checkout" placeholder= "Check out date/time" />
           <span class="small input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
           </span>
       </span>
       
       <%= submit_tag "Search Near", :name => nil %>
-    </p>     
+    
   
   <% end %>
 </div>
