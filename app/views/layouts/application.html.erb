@@ -39,20 +39,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     
-      <div class="searchbar form-group">
-        <%= form_tag results_path, :method => :get do %>
-          <p>
-            <%= text_field_tag :city, nil, :placeholder => "city" %>
-            <%= number_field_tag :parking_quantity, nil, :placeholder => "parking_quantity"%>
-            <%= date_field :checkin, nil, :placeholder => "checkin" %>
-            <%= time_field :checkin_time, nil %>
-            <%= date_field :checkout, nil, :placeholder => "checkout" %> 
-            <%= time_field :checkout_time, nil %>      
-            <%= submit_tag "Search Near", :name => nil %>
-          </p>     
-        
-        <% end %>
-      </div>
+
 
 
 
@@ -74,6 +61,23 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
+
+<div class="searchbar form-group">
+  <%= form_tag results_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :city, nil, :placeholder => "city" %>
+      <%= number_field_tag :parking_quantity, nil, :placeholder => "parking_quantity"%>
+      
+      <%= date_field :checkin, nil, :placeholder => "checkin" %>
+      <%= time_field :checkin_time, nil %>
+     
+      <%= date_field :checkout, nil, :placeholder => "checkout" %> 
+      <%= time_field :checkout_time, nil %>      
+      <%= submit_tag "Search Near", :name => nil %>
+    </p>     
+  
+  <% end %>
+</div>
 
 <!-- <div class="container-fluid"> -->
   <%= render 'partials/flash' %>
