@@ -21,10 +21,20 @@
 // Search bar
 
 .searchbar {
-  border: 2px solid red;
-  .big {
-    width: 200px;
+  background: linear-gradient(#30448D,#4C4980);
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; 
+  padding: 10px;
+
+  .input-group-addon {
+    border-radius: 0;
   }
+
+  .search_btn {
+    margin-left: 1px;
+  }
+
 }
 
 //the end of Andy's stylesheet

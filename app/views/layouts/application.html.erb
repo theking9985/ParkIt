@@ -15,12 +15,12 @@
   <link rel="stylesheet" href="/stylesheets/application.scss">
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="se-pre-con"></div>
 <nav class="navbar navbar-primary" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -30,7 +30,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/"><img src="/assets/p3_logo.jpg" alt="P3 logo"></a>
+    <a href="/"><img src="#" alt="P3 logo"></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,27 +53,32 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 
-<div class="searchbar form-group">
-  <%= form_tag results_path, :method => :get do %>
+<div class="searchbar">
+  <%= bootstrap_form_tag url: results_path, :method => :get, layout: :inline do |f| %>
     
-      <%= text_field_tag :city, nil, :placeholder => "Address" %>
-      <%= number_field_tag :parking_quantity, nil, :placeholder => "Parking spot"%>
+      <%= f.text_field :city, :hide_label => true, :placeholder => "Address" %>
+      <%= f.number_field :parking_quantity, :hide_label => true, :placeholder => "Parking spot" %>
       
-      <span class='big input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" name="checkin" placeholder= "Check in date/time" />
-          <span class="small input-group-addon">
+
+      <div class="form-group date">
+        <div class="input-group" id='datetimepicker1'>
+          <label class="control-label hidden" for="checkin">Checkin</label><input placeholder="Check in date/time" class="form-control" name="checkin" id="checkin" type="text">
+          <div class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-      </span>
-      
-      <span class='big input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" name="checkout" placeholder= "Check out date/time" />
-          <span class="small input-group-addon">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group date">
+        <div class="input-group" id='datetimepicker2'>
+          <label class="control-label hidden" for="checkout">Checkout</label><input placeholder="Check in date/time" class="form-control" name="checkout" id="checkout" type="text">
+          <div class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-      </span>
+          </div>
+        </div>
+      </div>
       
-      <%= submit_tag "Search Near", :name => nil %>
+      <%= f.submit "Search Near", :name => nil, class: "search_btn btn btn-primary" %>
     
   
   <% end %>
