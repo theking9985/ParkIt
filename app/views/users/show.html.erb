@@ -28,7 +28,6 @@
 <h3>My Properties</h3>
 <div id="prop">
 
-	<%#= link_to 'Properties', properties_path(@property), class: 'btn btn-primary' %>
 	<%= link_to 'Add New Property', new_property_path(), class: 'btn btn-primary' %>
 	<% @properties.each do |property|%>
 		<p>
@@ -38,6 +37,4 @@
 		</p>
 	<% end %>
 
-<!-- 	<button type="submit" formtarget="_blank">Add New Property</button><button>	
-	<button type="submit" formtarget="_blank">Edit Property</button> -->
 </div>
