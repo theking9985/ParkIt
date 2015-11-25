@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'chronic'
 gem 'rb-readline', '~> 0.4.2'
 # both of these are needed for the calendars
 gem 'momentjs-rails', '>= 2.9.0'
@@ -55,6 +55,7 @@ gem 'spring'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do

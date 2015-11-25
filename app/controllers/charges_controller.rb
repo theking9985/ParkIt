@@ -11,18 +11,18 @@ def new
   @custCheckin = params[:checkin]
   @custCheckout = params[:checkout]
   @custPkgQty = params[:parking_quantity]
-  raise
+
 end
 
 def create
   cust = params[:result_id]
   user_id = @current_user.id
   property_id = params[:property_id]
-  custCheckin = params[:checkin]
-  custCheckout = params[:checkout]
+  custCheckin = Chronic.parse(params[:checkin]).to_datetime
+  custCheckout = Chronic.parse(params[:checkout]).to_datetime
   custPkgQty = params[:parking_quantity]
   
-  Reservation.create(
+  Reservation.create!(
       checkin: custCheckin, 
       checkout: custCheckout, 
       property_id: property_id, 
