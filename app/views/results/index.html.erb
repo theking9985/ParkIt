@@ -1,53 +1,64 @@
-<h1>Results page</h1>
+<div class="container-fluid">
+	<div class="row">
+		<!-- margin left -->
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<h1 class="resultsHeader">Results</h1>
 
-<% if params[:city].present? && params[:parking_quantity].present? && params[:checkin].present? && params[:checkout].present? %>
-	<p>Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b> at <b><%=params[:checkin_time]%></b> to <b><%=params[:checkout]%></b> at <b><%=params[:checkout_time]%></b>
-	</p>
+			<% if params[:city].present? && params[:parking_quantity].present? && params[:checkin].present? && params[:checkout].present? %>
+				<p class="resultsHeader">Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b> at <b><%=params[:checkin_time]%></b> to <b><%=params[:checkout]%></b> at <b><%=params[:checkout_time]%></b>
+				</p>
 
-<% elsif !(params[:city].present?) || !(params[:parking_quantity].present?) || !(params[:checkin].present?) || !(params[:checkout].present?)  %>
+			<% elsif !(params[:city].present?) || !(params[:parking_quantity].present?) || !(params[:checkin].present?) || !(params[:checkout].present?)  %>
 
-<p>All search inputs are required</p>
-<h2>All available properties</h2>
-
-<% end %>
-
-<div class="results_row row">
-
-	<div class="results_left col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	
-	<% @properties.each do |p|%>
-		<div class="well">
-			<p>Title: <%= p.title %></p>
-			<p>Description: <%= p.description %></p>
-			<p>Price: $<%= p.price %></p>
-			<p>Address: <%= p.address %></p>
-			<p>Parking capacity: <%= p.parking_quantity %></p>
-			<p>Parking available: <b><%= p.available.nil? ? 0 : p.available %></b></p>
-
-			<% if !p.available.nil? && p.available > 0 %>
-
-				<%= link_to "Pick this driveway", result_path(p, 
-					checkin: params[:checkin], 
-					checkin_time: params[:checkin_time], 
-					checkout: params[:checkout], 
-					checkout_time: params[:checkout_time],
-					parking_quantity: params[:parking_quantity]
-				),
-				class: "btn btn-primary" %>
-			
-			<% else %>
-				<p>No more parking available at <b><%= p.title %></b></p>
+			<p>All search inputs are required</p>
+			<h2>All available properties</h2>
 
 			<% end %>
 		</div>
-	<% end %>	
+	</div>
+	<div class="results_row row">
+		<!-- margin left -->
+		<div class="col-md-1"></div>
+
+		<div class="results_left col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		
+		<% @properties.each do |p|%>
+			<div class="well" id="content">
+				<p>Title: <%= p.title %></p>
+				<p>Description: <%= p.description %></p>
+				<p>Price: $<%= p.price %></p>
+				<p>Address: <%= p.address %></p>
+				<p>Parking capacity: <%= p.parking_quantity %></p>
+				<p>Parking available: <b><%= p.available.nil? ? 0 : p.available %></b></p>
+
+				<% if !p.available.nil? && p.available > 0 %>
+
+					<%= link_to "Pick this driveway", result_path(p, 
+						checkin: params[:checkin], 
+						checkin_time: params[:checkin_time], 
+						checkout: params[:checkout], 
+						checkout_time: params[:checkout_time],
+						parking_quantity: params[:parking_quantity]
+					),
+					class: "btn btn-primary" %>
+				
+				<% else %>
+					<p>No more parking available at <b><%= p.title %></b></p>
+
+				<% end %>
+			</div>
+		<% end %>	
+
+		</div>
+
+		<div class="results_right col-xs-6 col-sm-6 col-md-6 col-lg-4">
+			<div id="map" style='height: 800px;'></div>
+		</div>
+		<!-- margin right -->
+		<div class="col-md-1"></div>
 
 	</div>
-
-	<div class="results_right col-xs-6 col-sm-6 col-md-6 col-lg-6" style='width: 400px;'>
-		<div id="map" style='width: 400px; height: 800px;'></div>
-	</div>
-
 </div>
 
 <script type="text/javascript">

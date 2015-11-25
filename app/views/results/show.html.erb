@@ -1,4 +1,4 @@
-<div class="container-fluid bg_id">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-11 resultsHeader"><h1><%= @property.title %> </h1></div>
@@ -18,10 +18,10 @@
 					</div>
 					<div class="col-md-5">
 						<div><strong>Trip details:</strong><br />
-						Checkin:<%= params[:checkin] %>
-						Checkout:<%= params[:checkout] %>
-						Parking: <%= params[:parking_quantity] %><br />
-						Rate: $<%= @property.price %>
+						Checkin: <small><em><%= params[:checkin] %></em></small><br />
+						Checkout: <small><em><%= params[:checkout] %></em></small><br />
+						Parking: <small><em><%= params[:parking_quantity] %></em></small><br />
+						Rate: <small><em>$<%= @property.price %></em></small>
 						</div>
 					</div>
 				</div>
