@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-
+<%= bootstrap_form_for @reservation do |p| %>
+ <%= p.text_field :id, :value => @user_id, class: "id" %>
+ <%= p.text_field :checkin, :value => @custCheckin, class: "checkin" %>
+ <%= p.text_field :checkout, :value => @custCheckout, class: "checkout" %>
+ <%= p.text_field :property_id, :value => @property_id, class: "property_id" %>
+ <%= p.text_field :user_id, :value => @current_user.id, class: "user_id" %>
+<% end %>
 
 <div class="jumbotron color3">
   <div class="row-fluid">
@@ -21,11 +27,31 @@
           </label>
         </p>
 
+        <script>
+          $(document).ready(function() {
+             $(".stripe-button-el").on('click', function(e) {
+                e.preventDefault();
+                $.ajax({
+                  type: "POST",
+                  url: '/results/'+ <%= @cust %> +'/charges',
+                  data: {
+                    'checkin': $('.checkin').val(), 
+                    'checkout': $('.checkout').val(), 
+                    'user_id': $('.user_id').val(), 
+                    'property_id': $('.property_id').val()}
+                }).done(function() {
+                  console.log('posted');
+                })
+              })
+          });
+        </script>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Parking fee"
                 data-amount="1000"
                 data-locale="auto"></script>
+
+
       <% end %>
       </div>
   </div>
