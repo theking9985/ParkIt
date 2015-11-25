@@ -30,7 +30,9 @@ class UsersController < ApplicationController
 
       # @myhosted = Reservation.all.where({user_id: @current_user.id})
       # @myhosted = Reservation.joins(:properties).where({user_id: @current_user.id})
-      @myhosted = Property.joins(:reservations).where({"user_id" =>  @current_user.id})
+      
+      # @myhosted = Property.joins(:reservations).where({"user_id" =>  @current_user.id})
+      @myhosted = Reservation.joins(:property).where({"properties.user_id" =>  @current_user.id})
 
       
 
