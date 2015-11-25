@@ -4,6 +4,14 @@
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+<%= bootstrap_form_for @reservation do |p| %>
+ <%= p.text_field :id, :value => @user_id, class: "id" %>
+ <%= p.text_field :checkin, :value => @custCheckin, class: "checkin" %>
+ <%= p.text_field :checkout, :value => @custCheckout, class: "checkout" %>
+ <%= p.text_field :property_id, :value => @property_id, class: "property_id" %>
+ <%= p.text_field :user_id, :value => @current_user.id, class: "user_id" %>
+<% end %>
+
 <div class="jumbotron color4">
 	<div class="row-fluid">
 	    <div class="span12 text-center">

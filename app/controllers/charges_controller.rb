@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+  class ChargesController < ApplicationController
 
 def new
   @reservation = Reservation.new
@@ -18,16 +18,17 @@ def create
   cust = params[:result_id]
   user_id = @current_user.id
   property_id = params[:property_id]
-  custCheckin = Chronic.parse(params[:checkin]).to_datetime
-  custCheckout = Chronic.parse(params[:checkout]).to_datetime
+  custCheckin = Chronic.parse(params[:checkin]).to_datetime if params[:checkin]
+  custCheckout = Chronic.parse(params[:checkout]).to_datetime if params[:checkout]
   custPkgQty = params[:parking_quantity]
   
-  Reservation.create!(
-      checkin: custCheckin, 
-      checkout: custCheckout, 
-      property_id: property_id, 
-      user_id: user_id)
-
+  if params[:checkin] && params[:checkout]
+    Reservation.create!(
+        checkin: custCheckin, 
+        checkout: custCheckout, 
+        property_id: property_id, 
+        user_id: user_id)
+  end
   # $10 with amount in cents
   @amount = 1000
 
