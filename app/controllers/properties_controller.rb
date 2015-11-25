@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
 	attr_accessor :latitude
 
   def index
-  	@properties = Property.all
+  	@properties = Property.where("user_id" => current_user)
   end
 
   def create
@@ -26,7 +26,7 @@ class PropertiesController < ApplicationController
     property.update property_params
     profile = property.user_id
     redirect_to user_path(profile)
-  end
+  end 
 
   def destroy
     Property.find(params[:id]).delete
