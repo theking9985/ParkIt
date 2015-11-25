@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
 		# checkout = (params[:checkout].nil? ? "" : params[:checkout].join("/"))+" "+(params[:checkout_time].nil? ? "" : params[:checkout_time].join("/"))
 		if (params[:city] && params[:parking_quantity]).present? && params[:checkin] != " " && params[:checkout] != " "
 	 		@city = Property.near(params[:city], 20)
-	 		@properties = @city.where("parking_quantity >= ?", params[:parking_quantity].to_i).where.not("user_id = ?", @current_user.id)
+	 		@properties = @city.where("parking_quantity >= ?", params[:parking_quantity].to_i)
 	 		#make this a method
 	 		@properties.each do |property|
 	 			res = Reservation.where("property_id = ? AND checkin >= ? AND checkout <= ?", property.id, params[:checkin], params[:checkout])
