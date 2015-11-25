@@ -1,4 +1,4 @@
-<% bootstrap_form_for @reservation do |p| %>
+<%= bootstrap_form_for @reservation do |p| %>
  <%= p.hidden_field :id, :value => @user_id, class: "id" %>
  <%= p.hidden_field :checkin, :value => @custCheckin, class: "checkin" %>
  <%= p.hidden_field :checkout, :value => @custCheckout, class: "checkout" %>
