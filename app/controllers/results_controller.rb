@@ -8,11 +8,10 @@ class ResultsController < ApplicationController
 	 		@properties = @city.where("parking_quantity >= ?", params[:parking_quantity].to_i)
 	 		#make this a method
 	 		@properties.each do |property|
-	 			res = Reservation.where("property_id = ? AND checkin >= ? AND checkout <= ?", property.id, params[:checkin], params[:checkout])
+	 			res = Reservation.where("property_id = ? AND checkin >= ? AND checkout <= ?", property.id, Chronic.parse(params[:checkin]).to_datetime, Chronic.parse(params[:checkout]).to_datetime)
 	 			property.available = property.parking_quantity - res.length
 	 		end
 	 		# @reservations = @properties.joins(:reservations).where("checkin >= ?", params[:checkin]).where("checkout <= ?", params[:checkout])
-
 			@hash = Gmaps4rails.build_markers(@properties) do |property, marker|
 			  marker.lat property.latitude
 			  marker.lng property.longitude
