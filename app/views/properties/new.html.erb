@@ -1,13 +1,18 @@
-<h2>Add another property</h2>
-<%= bootstrap_form_for @property do |p| %>
-	
-	<%= p.text_field :address %>
-	<%= p.text_field :parking_quantity %>
-	<%= p.text_field :price %>
-	<%= p.text_field :title %>
-	<%= p.text_field :description %>
-	<%= p.hidden_field :user_id, :value => @current_user.id %>
+<h2 id="propertyNew">Add property</h2>
 
-	<%= p.primary %>
+<div id="proNew">
 
-<% end %>
+	<%= bootstrap_form_for @property do |p| %>
+		
+		<%= p.text_field :address, :hide_label => true, :placeholder => "Address" %>
+		<%= p.text_field :parking_quantity, :hide_label => true, :placeholder => "Parking Availability"  %>
+		<%= p.text_field :price, :hide_label => true, :placeholder => "Price"  %>
+		<%= p.text_field :title, :hide_label => true, :placeholder => "Title"  %>
+		<%= p.text_field :description, :hide_label => true, :placeholder => "Description"  %>
+		<%= p.hidden_field :user_id, :value => @current_user.id %>
+
+		<%= p.primary %>
+
+	<% end %>
+
+</div>	

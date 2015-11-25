@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
 	attr_accessor :latitude
 
   def index
-  	@properties = Property.all
+  	@properties = Property.where("user_id" => current_user)
   end
 
   def create

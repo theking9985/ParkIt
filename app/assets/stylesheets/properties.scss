@@ -1,3 +1,45 @@
 // Place all the styles related to the properties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#propertyNew {
+	color: white;
+	font-size: 45px;
+	text-align: center;
+}
+
+#proNew {
+	text-align: center;
+
+	input {
+		margin: 0 auto;
+		text-align: center;
+		width: 35%;
+	}
+}
+
+#proIndex, #proEdit {
+	text-align: center;
+
+	h1 {
+		color: white;
+		font-size: 45px;
+	}
+
+	div {
+		margin: 0 auto;
+		text-align: center;
+		width: 30%;
+	}
+}
+
+#proEdit {
+	p {
+		color: white;
+		font-size: 20px;
+	}
+
+	input[type="submit"] {
+		width: 30%;
+	}
+}
