@@ -11,7 +11,6 @@ def new
   @custCheckin = params[:checkin]
   @custCheckout = params[:checkout]
   @custPkgQty = params[:parking_quantity]
-
 end
 
 def create
