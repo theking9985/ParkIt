@@ -6,9 +6,9 @@
  <%= p.text_field :user_id, :value => @current_user.id, class: "user_id" %>
 <% end %>
 
-<div class="jumbotron color3">
+<div class="color3">
   <div class="row-fluid">
-      <div class="span12 text-center">
+      <div class="span12 well text-center" id="content">
           <h1>Confirm Payment</h1>
           <p>You are booking for <b><%= @address %></b> for <b><%= @custPkgQty %></b> parking spots from <b><%= @custCheckin%></b> to <b><%= @custCheckout%></b>.</p>
 
