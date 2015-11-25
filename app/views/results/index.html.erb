@@ -1,13 +1,10 @@
-<h1>Results page</h1>
-
 <% if params[:city].present? && params[:parking_quantity].present? && params[:checkin].present? && params[:checkout].present? %>
 	<p>Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b> at <b><%=params[:checkin_time]%></b> to <b><%=params[:checkout]%></b> at <b><%=params[:checkout_time]%></b>
 	</p>
 
 <% elsif !(params[:city].present?) || !(params[:parking_quantity].present?) || !(params[:checkin].present?) || !(params[:checkout].present?)  %>
 
-<p>All search inputs are required</p>
-<h2>All available properties</h2>
+	<h2>All available properties</h2>
 
 <% end %>
 
@@ -45,7 +42,7 @@
 	</div>
 
 	<div class="results_right col-xs-6 col-sm-6 col-md-6 col-lg-6" style='width: 400px;'>
-		<div id="map" style='width: 400px; height: 800px;'></div>
+		<div id="map" style='width: 400px; height: 400px;'></div>
 	</div>
 
 </div>
