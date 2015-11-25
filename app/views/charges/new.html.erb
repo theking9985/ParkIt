@@ -1,7 +1,7 @@
 <div class="color3">
   <div class="row-fluid">
       <div class="span12 well text-center" id="content">
-          <h1>Confirm Payment</h1>
+          <h1 class="confirm">Payment Confirmation</h1>
           <p>You are booking for <b><%= @address %></b> for <b><%= @custPkgQty %></b> parking spots from <b><%= @custCheckin%></b> to <b><%= @custCheckout%></b>.</p>
 
       <%= form_tag result_charges_path do %>
@@ -12,7 +12,7 @@
             </div>
           <% end %>
           <label class="amount">
-            <span class="center">Amount: $10.00</span>
+            <span class="center chargeNew">Amount: $10.00</span>
           </label>
         </p>
 
