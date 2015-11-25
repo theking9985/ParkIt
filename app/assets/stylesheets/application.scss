@@ -16,6 +16,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
  
 // Andy's stylesheet
 // Search bar
@@ -35,7 +36,24 @@
     margin-left: 1px;
   }
 
+  .form-group {
+    text-align: center;
+  }
+
 }
+
+
+  
+  #title {
+    border: 1px dotted black;
+    color: #31448C;
+    font-family: 'Abril Fatface', cursive, Arial, serif;
+    font-weight: 400; 
+    font-size: 35px;
+    margin-left: 30px;
+  }
+  
+
 
 //the end of Andy's stylesheet
 
