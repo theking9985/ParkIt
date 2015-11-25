@@ -1,10 +1,14 @@
-<h3>Edit Property</h3>
+<div id="proEdit">
 
-<%= bootstrap_form_for @property do |f| %>
-  <%= f.number_field :parking_quantity %>
-  <%= f.number_field :price %>
-  <%= f.text_field :title %>
-  <%= f.text_area :description %>
+	<h1>Edit Property</h1>
 
-  <%= f.primary 'Submit Edit' %>
-<% end %>
+	<%= bootstrap_form_for @property do |f| %>
+	  <p>Parking availability <%= f.number_field :parking_quantity, :hide_label => true %></p>
+	  <p>Price <%= f.number_field :price, :hide_label => true %></p>
+	  <p>Title <%= f.text_field :title, :hide_label => true %></p>
+	  <p>Description <%= f.text_area :description, :hide_label => true %></p>
+
+	  <%= f.primary 'Submit Edit' %>
+	<% end %>
+
+</div>

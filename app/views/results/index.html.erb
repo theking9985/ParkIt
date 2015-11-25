@@ -6,7 +6,7 @@
 				<h1 class="resultsHeader">Results</h1>
 
 				<% if params[:city].present? && params[:parking_quantity].present? && params[:checkin].present? && params[:checkout].present? %>
-					<p>Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b> at <b><%=params[:checkin_time]%></b> to <b><%=params[:checkout]%></b> at <b><%=params[:checkout_time]%></b></p>
+					<p class="diff">Your search results for <b><%=params[:city].capitalize%></b> for <b><%=params[:parking_quantity]%></b> parking spots from <b><%=params[:checkin]%></b></b> to <b><%=params[:checkout]%></b></p>
 				<% elsif !(params[:city].present?) || !(params[:parking_quantity].present?) || !(params[:checkin].present?) || !(params[:checkout].present?)  %>
 					<h2>All available properties</h2>
 				<% end %>
