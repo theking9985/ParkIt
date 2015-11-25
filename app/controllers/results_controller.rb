@@ -19,6 +19,7 @@ class ResultsController < ApplicationController
 			  marker.infowindow property.title
 			end
 		else
+			flash[:danger] = "All search inputs are required"
 			@properties = Property.all
 			# make this into a method
 			@properties.each do |property|
