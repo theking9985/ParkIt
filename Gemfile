@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'rb-readline', '~> 0.4.2'
 # both of these are needed for the calendars
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'

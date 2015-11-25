@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row">
-		<div id="aboutme" class="col-xs-12 col-sm-6 col-md-6">
+		<div id="aboutme" class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
 			<h3>
 				<p><%= @user.name %></p>
 				<small>
@@ -18,37 +18,38 @@
 			</h3>
 		</div>
 
-		<div id="prop" class="col-xs-6 col-md-6">
+		<div id="prop" class="col-xs-6 col-md-5">
 		<h3>My Properties
 			<%= link_to '', new_property_path(), class: 'fa fa-plus-circle' %></h3>
 			<% @properties.each do |property|%>
 				<p>
-					<%= property.address %>
-					<%= link_to '', edit_property_path(property), class: 'fa fa-pencil-square-o fa-2x' %>
-			  	<%= link_to '', property, class: 'fa fa-trash-o fa-2x', method: :delete %>
+					<h4><%= property.address %>
+					<span class="pull-right"><%= link_to '', edit_property_path(property), class: 'fa fa-pencil-square-o fa-2x' %>
+			  	<%= link_to '', property, class: 'fa fa-trash-o fa-2x', method: :delete %></span></h4>
 				</p>
 			<% end %>
 		</div>
 	</div>
 
-	<div id="trips">
-		<h3>My Trips</h3>
-		<% @reservations.each do |reservation|%>
-			<p>
-				<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
-			</p>
-		<% end %>
+	<div class="row">
+		<div id="trips" class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
+			<h3>My Trips</h3>
+			<% @reservations.each do |reservation|%>
+				<p>
+					<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+				</p>
+			<% end %>
+		</div>
+
+
+		<div id="hostings" class="col-xs-12 col-sm-6 col-md-5">
+			<h3>My Hostings</h3>
+			<% @myhosted.each do |reservation|%>
+				<p>
+					<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
+				</p>
+			<% end %>
+		</div>
 	</div>
-
-
-	<div id="hostings">
-		<h3>My Hostings</h3>
-		<% @myhosted.each do |reservation|%>
-			<p>
-				<%= reservation.checkin %> to <%= reservation.checkout%> at <%= reservation.property.address%>
-			</p>
-		<% end %>
-	</div>
-
 
 </div>
