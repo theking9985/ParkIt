@@ -1,3 +1,12 @@
+<% bootstrap_form_for @reservation do |p| %>
+ <%= p.hidden_field :id, :value => @user_id, class: "id" %>
+ <%= p.hidden_field :checkin, :value => @custCheckin, class: "checkin" %>
+ <%= p.hidden_field :checkout, :value => @custCheckout, class: "checkout" %>
+ <%= p.hidden_field :property_id, :value => @property_id, class: "property_id" %>
+ <%= p.hidden_field :user_id, :value => @current_user.id, class: "user_id" %>
+<% end %>
+
+
 <div class="color3">
   <div class="row-fluid">
       <div class="span12 well text-center" id="content">
